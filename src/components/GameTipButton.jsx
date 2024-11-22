@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export default function GameTipButton() {
+export default function GameTipButton({ playClick }) {
   const [tipIsOpen, setTipIsOpen] = useState(false);
 
   return (
@@ -20,6 +20,7 @@ export default function GameTipButton() {
         className="game-tip-button"
         onClick={() => {
           setTipIsOpen(!tipIsOpen);
+          playClick();
         }}
       >
         <FontAwesomeIcon icon={faQuestion} />

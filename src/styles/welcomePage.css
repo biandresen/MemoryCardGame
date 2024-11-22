@@ -10,25 +10,27 @@
   animation: slide-in 0.5s linear;
 }
 .game-logo {
+  translate: -10% -50%;
   text-align: center;
   font-family: PokemonFontSolid, sans-serif;
   color: #ffd924;
   letter-spacing: 8px;
 }
 .game-logo-header {
-  font-size: 6rem;
+  font-size: 5rem;
   text-shadow:
     5px 5px 0px black,
     -5px -3px 3px #fe3310;
 }
 .game-logo-text {
-  margin: -35px 0 25px 0;
-  font-size: 3rem;
+  margin: -30px 0 25px 0;
+  font-size: 2rem;
   text-shadow:
     5px 5px 0px black,
     -5px -3px 3px #fe3310;
 }
 .start-game-button {
+  translate: 0 120%;
   text-align: center;
   font-family: PokemonFontSolid, sans-serif;
   color: #ffd924;

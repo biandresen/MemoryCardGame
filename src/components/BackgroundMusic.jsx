@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeHigh, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
 import "../styles/musicButton.css";
 
-export default function BackgroundMusic({ src }) {
+export default function BackgroundMusic({ playClick, src }) {
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(new Audio(src)); // Ref to persist the same Audio instance
 
@@ -16,7 +16,12 @@ export default function BackgroundMusic({ src }) {
 
   return (
     <>
-      <button className="music-button" onClick={toggleMusic}>
+      <button
+        className="music-button"
+        onClick={() => {
+          toggleMusic(), playClick();
+        }}
+      >
         {playing ?
           <FontAwesomeIcon icon={faVolumeHigh} />
         : <FontAwesomeIcon icon={faVolumeXmark} />}

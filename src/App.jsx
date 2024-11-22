@@ -1,5 +1,6 @@
 import backgroundVideo from "./assets/images/PokemonWallpaper.mp4";
 import backgroundMusic from "./assets/audio/backgroundMusic.mp3";
+import clickSound from "./assets/audio/clickSound.mp3";
 import loadingImage from "./assets/images/pikachuLoading.png";
 import "./styles/reset.css";
 import "./styles/app.css";
@@ -10,6 +11,7 @@ import Header from "./components/Header";
 import LoadingPage from "./components/LoadingPage";
 import WelcomePage from "./components/WelcomePage";
 import Footer from "./components/Footer";
+import GamePage from "./components/GamePage";
 import GameTipButton from "./components/GameTipButton";
 import { useState, useEffect } from "react";
 const loadingImageName = "pikachu";
@@ -17,6 +19,9 @@ const loadingImageName = "pikachu";
 export default function App() {
   const [isLoadingOver, setIsLoadingOver] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
+  const [gameInProgress, setGameInProgress] = useState(false);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,6 +29,18 @@ export default function App() {
       setTimeout(() => setIsLoadingOver(true), 500);
     }, 3000);
   }, []);
+
+  const playClick = () => {
+    const audio = new Audio(clickSound);
+    audio.volume = 0.7;
+    audio.play();
+  };
+
+  const playFlip = () => {
+    const audio = new Audio(flipSound);
+    audio.volume = 0.7;
+    audio.play();
+  };
 
   return (
     <>
@@ -33,13 +50,27 @@ export default function App() {
           src={loadingImage}
           srcName={loadingImageName}
         />
-      : <WelcomePage />}
-
+      : <>
+          {!gameInProgress ?
+            <WelcomePage
+              playClick={playClick}
+              setGameInProgress={setGameInProgress}
+            />
+          : <GamePage
+              score={score}
+              setScore={setScore}
+              highScore={highScore}
+              setHightScore={setHighScore}
+              playFlip={playFlip}
+            />
+          }
+        </>
+      }
       <Header />
       <Footer />
       <BackgroundVideo src={backgroundVideo} />
-      <BackgroundMusic src={backgroundMusic} />
-      <GameTipButton />
+      <BackgroundMusic playClick={playClick} src={backgroundMusic} />
+      <GameTipButton playClick={playClick} />
     </>
   );
 }
