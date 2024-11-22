@@ -5,12 +5,14 @@ import "./styles/app.css";
 
 import BackgroundVideo from "./components/BackgroundVideo";
 import BackgroundMusic from "./components/BackgroundMusic";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <>
-      <div></div>
-
+      <Header />
+      <Footer />
       <BackgroundVideo src={backgroundVideo} />
       <BackgroundMusic src={backgroundMusic} />
     </>

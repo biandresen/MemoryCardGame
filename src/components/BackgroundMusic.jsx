@@ -6,6 +6,7 @@ export default function BackgroundMusic({ src }) {
 
   const toggleMusic = () => {
     const audio = audioRef.current;
+    audio.loop = true;
     playing ? audio.pause() : audio.play();
     setPlaying(!playing);
   };
