@@ -1,5 +1,7 @@
 import "../styles/gamePage.css";
 import { GameLogo } from "./WelcomePage";
+import PokemonList from "./PokemonList";
+import { useState, useEffect } from "react";
 
 export default function GamePage({
   score,
@@ -8,23 +10,43 @@ export default function GamePage({
   setHighScore,
   playFlip,
 }) {
+  const [pokemons, setPokemons] = useState([]); // State for Pokémon data
+  const [loading, setLoading] = useState(true); // State for loading indicator
+
+  // Fetch Pokémon on component mount
+  useEffect(() => {
+    const fetchPokemons = async () => {
+      try {
+        const fetchedPokemons = await PokemonList();
+        setPokemons(fetchedPokemons);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching Pokémon:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchPokemons();
+  }, []);
+
   return (
     <>
       <div className="game-page-container">
         <GameLogo />
         <ScoreContainer score={score} highScore={highScore} />
-        <div className="card-container">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+
+        {loading ?
+          <div>Loading Pokémon...</div>
+        : <div className="card-container">
+            {pokemons.map((pokemon) => (
+              <Card
+                key={pokemon.name}
+                name={pokemon.name}
+                image={pokemon.sprites.front_default} // Use `front_default` or another available sprite
+              />
+            ))}
+          </div>
+        }
       </div>
     </>
   );
@@ -39,11 +61,11 @@ function ScoreContainer({ score, highScore }) {
   );
 }
 
-function Card() {
+function Card({ name, image }) {
   return (
     <div className="card">
-      <img src="" alt="" />
-      <h3>Pokemon Name</h3>
+      <img src={image} alt={name} className="card-image" />
+      <h3 className="card-name">{name}</h3>
     </div>
   );
 }

@@ -2,11 +2,10 @@
 2. Make a header component. OK
 3. Make a footer component. OK
 5. Make a music button that starts background music. OK
+4. Make a welcome screen component OK
+6. Make a tip button that gives tips on how to play the game OK
+7. Make a start game component OK
 
-
-4. Make a welcome screen component
-6. Make a tip button that gives tips on how to play the game
-7. Make a start game component
 8. Make a score component that keeps track of total score and respective game score
 9. Make a win/lose component
 10. Make a fetch pokemons component

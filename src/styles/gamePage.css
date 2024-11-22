@@ -1,5 +1,4 @@
 .game-page-container {
-  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7,8 +6,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(350px, 1300px, 90%);
-  height: clamp(350px, 700px, 75%);
+  width: clamp(350px, 1000px, 90%);
+  height: clamp(350px, 550px, 75%);
 }
 .game-logo {
   position: fixed;
@@ -30,16 +29,34 @@
 .high-score-header {
 }
 .card-container {
-  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   width: 100%;
   height: 80%;
-  bottom: 0%;
+  bottom: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-items: center;
+  justify-items: center;
+  gap: 10px;
 }
+
 .card {
-  justify-self: center;
-  color: white;
+  color: hsl(60, 100%, 50%);
+  border: 5px solid hsl(60, 100%, 50%);
+  border-radius: 8px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-name {
+  margin-top: -10px;
+  font-size: 1.2rem;
 }
