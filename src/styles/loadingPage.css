@@ -1,0 +1,75 @@
+.loading-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading-container.slide-out {
+  animation: slide-out 0.5s linear;
+}
+.loading-image {
+  width: 200px;
+  height: auto;
+  animation: load-spin 3.5s linear infinite;
+}
+.loading-text {
+  margin-top: 10px;
+  font-family: PokemonFontSolid, sans-serif;
+  font-size: 3rem;
+  color: #ffd924;
+  text-shadow:
+    3px 3px 0px black,
+    -3px -3px 3px #fe3310;
+  letter-spacing: 5px;
+  text-align: center;
+  animation: load-up-n-down 3.5s linear infinite;
+}
+
+@keyframes load-spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-15deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+  75% {
+    transform: rotateZ(15deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes load-up-n-down {
+  from {
+    transform: rotateX(0deg);
+  }
+  25% {
+    transform: rotateX(-50deg);
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+  75% {
+    transform: rotateX(50deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 120%;
+  }
+}

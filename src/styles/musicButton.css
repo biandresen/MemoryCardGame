@@ -1,0 +1,21 @@
+.music-button {
+  position: absolute;
+  background-color: #ffd924;
+  box-shadow:
+    1px 1px 1px 2px black,
+    1px 1px 6px 6px #fe3310;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  left: 50%;
+  bottom: 5%;
+  translate: 25%;
+  transition: box-shadow 0.3s ease;
+}
+.music-button:hover {
+  box-shadow:
+    1px 1px 1px 2px black,
+    1px 1px 10px 10px #fe3310;
+}

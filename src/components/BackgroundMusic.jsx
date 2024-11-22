@@ -1,4 +1,7 @@
 import { useState, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVolumeHigh, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
+import "../styles/musicButton.css";
 
 export default function BackgroundMusic({ src }) {
   const [playing, setPlaying] = useState(false);
@@ -11,5 +14,13 @@ export default function BackgroundMusic({ src }) {
     setPlaying(!playing);
   };
 
-  return <button onClick={toggleMusic}>{playing ? "Pause" : "Play"}</button>;
+  return (
+    <>
+      <button className="music-button" onClick={toggleMusic}>
+        {playing ?
+          <FontAwesomeIcon icon={faVolumeHigh} />
+        : <FontAwesomeIcon icon={faVolumeXmark} />}
+      </button>
+    </>
+  );
 }
