@@ -41,6 +41,8 @@ export default function GamePage({ playFlip, setIsWinner }) {
       score >= highScore && setHighScore(1 + score);
       score === pokemons.length - 1 && setIsWinner(true);
     }
+
+    setPokemons(pokemons.sort(() => Math.random() - 0.5));
   }
 
   return (
