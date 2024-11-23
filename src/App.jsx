@@ -1,6 +1,8 @@
 import backgroundVideo from "./assets/images/PokemonWallpaper.mp4";
 import backgroundMusic from "./assets/audio/backgroundMusic.mp3";
 import clickSound from "./assets/audio/clickSound.mp3";
+import flipSound from "./assets/audio/flipSound.mp3";
+import winnerSound from "./assets/audio/winnerSound.mp3";
 import loadingImage from "./assets/images/pikachuLoading.png";
 import "./styles/reset.css";
 import "./styles/app.css";
@@ -13,6 +15,7 @@ import WelcomePage from "./components/WelcomePage";
 import Footer from "./components/Footer";
 import GamePage from "./components/GamePage";
 import GameTipButton from "./components/GameTipButton";
+import GameOverPage from "./components/GameOverPage";
 import { useState, useEffect } from "react";
 const loadingImageName = "pikachu";
 
@@ -20,8 +23,7 @@ export default function App() {
   const [isLoadingOver, setIsLoadingOver] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
   const [gameInProgress, setGameInProgress] = useState(false);
-  const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
+  const [isWinner, setIsWinner] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,9 +40,21 @@ export default function App() {
 
   const playFlip = () => {
     const audio = new Audio(flipSound);
-    audio.volume = 0.7;
     audio.play();
   };
+
+  const playWinner = () => {
+    const audio = new Audio(winnerSound);
+    audio.play();
+    
+  };
+
+  const resetGame = () => {
+    setGameInProgress(true);
+    setIsWinner(false);
+  };
+
+  isWinner && playWinner();
 
   return (
     <>
@@ -51,21 +65,20 @@ export default function App() {
           srcName={loadingImageName}
         />
       : <>
+          {" "}
           {!gameInProgress ?
             <WelcomePage
               playClick={playClick}
               setGameInProgress={setGameInProgress}
             />
-          : <GamePage
-              score={score}
-              setScore={setScore}
-              highScore={highScore}
-              setHightScore={setHighScore}
-              playFlip={playFlip}
-            />
+          : !isWinner && (
+              <GamePage playFlip={playFlip} setIsWinner={setIsWinner} />
+            )
           }
         </>
       }
+
+      {isWinner && <GameOverPage playClick={playClick} resetGame={resetGame} />}
       <Header />
       <Footer />
       <BackgroundVideo src={backgroundVideo} />

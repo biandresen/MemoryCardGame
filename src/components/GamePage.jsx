@@ -2,18 +2,15 @@ import "../styles/gamePage.css";
 import { GameLogo } from "./WelcomePage";
 import PokemonList from "./PokemonList";
 import { useState, useEffect } from "react";
+import pikachu from "../assets/images/pikachuLoading.png";
 
-export default function GamePage({
-  score,
-  highScore,
-  setScore,
-  setHighScore,
-  playFlip,
-}) {
-  const [pokemons, setPokemons] = useState([]); // State for Pokémon data
-  const [loading, setLoading] = useState(true); // State for loading indicator
+export default function GamePage({ playFlip, setIsWinner }) {
+  const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [clickedPokemons, setClickedPokemons] = useState([]);
 
-  // Fetch Pokémon on component mount
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
@@ -29,6 +26,23 @@ export default function GamePage({
     fetchPokemons();
   }, []);
 
+  function playRound(e) {
+    const currentPokemon = e.target.alt;
+    const isClicked = clickedPokemons.some(
+      (pokemon) => pokemon == currentPokemon
+    );
+
+    if (isClicked) {
+      setScore(0);
+      setClickedPokemons([]);
+    } else {
+      setClickedPokemons((c) => [...c, currentPokemon]);
+      setScore((s) => s + 1);
+      score >= highScore && setHighScore(1 + score);
+      score === pokemons.length - 1 && setIsWinner(true);
+    }
+  }
+
   return (
     <>
       <div className="game-page-container">
@@ -41,8 +55,10 @@ export default function GamePage({
             {pokemons.map((pokemon) => (
               <Card
                 key={pokemon.name}
-                name={pokemon.name}
-                image={pokemon.sprites.front_default} // Use `front_default` or another available sprite
+                name={pokemon.name.toUpperCase()}
+                image={pokemon.sprites.front_default}
+                playRound={playRound}
+                playFlip={playFlip}
               />
             ))}
           </div>
@@ -55,17 +71,27 @@ export default function GamePage({
 function ScoreContainer({ score, highScore }) {
   return (
     <div className="score-container">
-      <h2 className="score-header">Score: {score}</h2>
-      <h2 className="high-score-header">High Score: {highScore} </h2>
+      <div>
+        <h2 className="score-header">Score: {score}</h2>
+        <h2 className="high-score-header">High Score: {highScore} </h2>
+      </div>
+      <img className="score-image" src={pikachu} alt={pikachu} />
     </div>
   );
 }
 
-function Card({ name, image }) {
+function Card({ name, image, playRound, playFlip }) {
   return (
     <div className="card">
-      <img src={image} alt={name} className="card-image" />
       <h3 className="card-name">{name}</h3>
+      <img
+        onClick={(e) => {
+          playRound(e), playFlip();
+        }}
+        src={image}
+        alt={name}
+        className="card-image"
+      />
     </div>
   );
 }
