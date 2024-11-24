@@ -5,7 +5,8 @@
 4. Make a welcome screen component OK
 6. Make a tip button that gives tips on how to play the game OK
 7. Make a start game component OK
+8. Make a score component that keeps track of total score and respective game score OK
+9. Make a win/lose component OK
+10. Make a fetch pokemons component OK
 
-8. Make a score component that keeps track of total score and respective game score
-9. Make a win/lose component
-10. Make a fetch pokemons component
+11. HANDLE OFFSET AFFIRM. Husk å legg til props. Noe er kommentert ut.

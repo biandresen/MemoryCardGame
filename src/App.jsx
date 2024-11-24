@@ -46,7 +46,6 @@ export default function App() {
   const playWinner = () => {
     const audio = new Audio(winnerSound);
     audio.play();
-    
   };
 
   const resetGame = () => {
@@ -72,7 +71,11 @@ export default function App() {
               setGameInProgress={setGameInProgress}
             />
           : !isWinner && (
-              <GamePage playFlip={playFlip} setIsWinner={setIsWinner} />
+              <GamePage
+                playClick={playClick}
+                playFlip={playFlip}
+                setIsWinner={setIsWinner}
+              />
             )
           }
         </>

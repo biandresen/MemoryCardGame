@@ -18,7 +18,9 @@
   position: fixed;
   top: 0%;
   right: 0%;
-  box-shadow: 4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
+  box-shadow:
+    0px 0px 5px 3px yellow,
+    4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
   background-color: hsla(0, 0%, 100%, 0.25);
   backdrop-filter: blur(25px);
   width: 330px;
@@ -63,12 +65,11 @@
   display: flex;
   flex-direction: column;
   align-self: end;
-  transition: all 0.3s ease;
-  animation: shake 2s linear infinite;
+  transition: all 0.2s ease;
+  animation: shake 1s linear infinite;
 }
 .card:hover {
-  box-shadow: 0px 0px 10px 5px #fe3310;
-  transform: scale(1.05);
+  box-shadow: 0px 0px 7px 10px #fe3310;
 }
 
 .card-image {
@@ -81,6 +82,45 @@
   margin-bottom: -17px;
   font-size: 1.2rem;
   font-weight: 1000;
+}
+.offset-container {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  translate: 28%;
+  width: fit-content;
+  height: fit-content;
+  background: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
+  background-color: hsla(0, 0%, 100%, 0.2);
+  backdrop-filter: blur(25px);
+  display: flex;
+  align-items: center;
+}
+.offset-container label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-right: 10px;
+}
+#offset-input {
+  background-color: yellow;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+}
+.offset-affirm-button {
+  font-weight: 700;
+  font-size: 1.2rem;
+  background-color: #ffd924;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+  padding: 4px;
 }
 
 @keyframes shake {

@@ -11,7 +11,7 @@
   padding: 5px;
   left: 50%;
   bottom: 5%;
-  translate: 25%;
+  translate: 0%;
   transition: box-shadow 0.3s ease;
 }
 .music-button:hover {
