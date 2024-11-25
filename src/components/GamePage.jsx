@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import pikachu from "../assets/images/pikachuLoading.png";
+import firstGenPokemons from "../assets/firstGenPokemons.json";
 
 const MAXOFFSET = 139;
 
@@ -74,7 +75,8 @@ export default function GamePage({ playClick, setIsWinner }) {
   }, [offSetMenuOpen]);
 
   const handleOffSetAffirm = () => {
-    let offsetValue = document.getElementById("offset-input").value;
+    let offsetValue = Number(document.getElementById("offset-input").value);
+    if (offsetValue > MAXOFFSET) offsetValue = MAXOFFSET;
     setOffset(offsetValue);
     offsetValue = "";
   };
@@ -152,21 +154,43 @@ function Card({ name, image, playRound }) {
 
 function OffSetMenu({ playClick, handleOffSetAffirm, setOffsetMenuOpen }) {
   return (
-    <>
-      <div className="offset-container">
+    <div className="offset-container">
+      <div className="offset-input-container">
         <label htmlFor="offset-input">Choose pokemon offset-nr:</label>
-        <input id="offset-input" type="number" min="0" max={MAXOFFSET} />
-        <button
-          onClick={() => {
-            playClick();
-            handleOffSetAffirm();
-            setOffsetMenuOpen(false);
-          }}
-          className="offset-affirm-button"
-        >
-          OK
-        </button>
+        <div>
+          <input
+            id="offset-input"
+            inputMode="numeric"
+            type="number"
+            placeholder="0-139"
+          />
+          <button
+            onClick={() => {
+              playClick();
+              handleOffSetAffirm();
+              setOffsetMenuOpen(false);
+            }}
+            className="offset-affirm-button"
+          >
+            OK
+          </button>
+        </div>
       </div>
-    </>
+      <ListOfPokemons />
+    </div>
+  );
+}
+
+function ListOfPokemons() {
+  const dropdownPokemonList = firstGenPokemons;
+  return (
+    <div className="dropdown-menu">
+      <h2>1.Generation Pokémons: </h2>
+      <ol className="pokemon-list">
+        {Object.entries(dropdownPokemonList).map(([key, value]) => (
+          <li key={key}>{value}</li>
+        ))}
+      </ol>
+    </div>
   );
 }
