@@ -1,10 +1,12 @@
+@import url(variables.css);
+
 .game-tip-button {
   font-size: 1.2rem;
   position: absolute;
-  background-color: #ffd924;
+  background-color: var(--clr-primary);
   box-shadow:
-    1px 1px 1px 2px black,
-    1px 1px 6px 6px #fe3310;
+    1px 1px 1px 2px var(--clr-dark-shadow),
+    1px 1px 6px 6px var(--clr-secondary);
   cursor: pointer;
   border-radius: 50%;
   width: 40px;
@@ -14,45 +16,55 @@
   bottom: 5%;
   translate: -150%;
   transition: box-shadow 0.3s ease;
+  z-index: 3;
 }
 .game-tip-button:hover {
   box-shadow:
-    1px 1px 1px 2px black,
-    1px 1px 10px 10px #fe3310;
+    1px 1px 1px 2px var(--clr-dark-shadow),
+    1px 1px 10px 10px var(--clr-secondary);
 }
 .tip-container {
-  width: fit-content;
+  min-width: 600px;
   height: fit-content;
   position: absolute;
   left: 50%;
-  bottom: 5%;
-  translate: -123%;
+  top: 50%;
+  translate: -50% -50%;
   background: none;
   border-radius: 10px;
-  padding: 5px 15px;
-  box-shadow: 4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
-  background-color: hsla(0, 0%, 100%, 0.2);
+  padding: 30px;
+  box-shadow: 4px 4px 6px 2px var(--clr-dark-shadow);
+  background-color: var(--clr-blur-background);
   backdrop-filter: blur(25px);
   display: flex;
+  z-index: 3;
 }
 .tip-message {
-  color: black;
-  font-size: 1.2rem;
+  color: var(--clr-text);
+  font-size: 1.55rem;
   font-weight: 1000;
   letter-spacing: 1px;
 }
 .tip-image {
-  width: 80px;
+  width: 200px;
   height: auto;
   margin: 0 -10px 0 8px;
+}
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: none;
 }
 .offset-menu-button {
   font-size: 1.2rem;
   position: absolute;
-  background-color: #ffd924;
+  background-color: var(--clr-primary);
   box-shadow:
-    1px 1px 1px 2px black,
-    1px 1px 6px 6px #fe3310;
+    1px 1px 1px 2px var(--clr-dark-shadow),
+    1px 1px 6px 6px var(--clr-secondary);
   cursor: pointer;
   border-radius: 50%;
   width: 40px;
@@ -62,9 +74,49 @@
   bottom: 5%;
   translate: 150%;
   transition: box-shadow 0.3s ease;
+  z-index: 3;
 }
 .offset-menu-button:hover {
   box-shadow:
-    1px 1px 1px 2px black,
-    1px 1px 10px 10px #fe3310;
+    1px 1px 1px 2px var(--clr-dark-shadow),
+    1px 1px 10px 10px var(--clr-secondary);
+}
+
+@media (max-width: 1060px) or (max-height: 930px) {
+  .game-tip-button {
+    font-size: 0.8rem;
+    width: 30px;
+    height: 30px;
+  }
+  .offset-menu-button {
+    font-size: 0.8rem;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 860px) {
+  .tip-container {
+    padding: 20px;
+    min-width: 440px;
+  }
+  .tip-message {
+    font-size: 1.55rem;
+  }
+  .tip-image {
+    width: 130px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tip-container {
+    padding: 15px;
+    min-width: 320px;
+  }
+  .tip-message {
+    font-size: 1rem;
+  }
+  .tip-image {
+    width: 100px;
+  }
 }

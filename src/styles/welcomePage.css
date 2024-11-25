@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 .welcome-container {
   position: fixed;
   display: flex;
@@ -13,42 +15,44 @@
   translate: -10% -50%;
   text-align: center;
   font-family: PokemonFontSolid, sans-serif;
-  color: #ffd924;
+  color: var(--clr-primary);
   letter-spacing: 8px;
 }
 .game-logo-header {
   font-size: 5rem;
   text-shadow:
-    5px 5px 0px black,
-    -5px -3px 3px #fe3310;
+    5px 5px 0px var(--clr-dark-shadow),
+    -5px -3px 3px var(--clr-secondary);
 }
 .game-logo-text {
   margin: -30px 0 25px 0;
   font-size: 2rem;
   text-shadow:
-    5px 5px 0px black,
-    -5px -3px 3px #fe3310;
+    5px 5px 0px var(--clr-dark-shadow),
+    -5px -3px 3px var(--clr-secondary);
 }
 .start-game-button {
   translate: 0 120%;
   text-align: center;
   font-family: PokemonFontSolid, sans-serif;
-  color: #ffd924;
+  color: var(--clr-primary);
   letter-spacing: 5px;
   font-size: 2.5rem;
-  background: none;
   border: transparent;
   border-radius: 10px;
-  padding: 0px 10px;
+  padding: 12px 20px 8px 20px;
   cursor: pointer;
-  box-shadow: 0px 0px 5px 5px;
   text-shadow:
-    5px 5px 0px black,
-    -5px -3px 3px #fe3310;
-  transition: box-shadow 0.3s ease;
+    5px 5px 0px var(--clr-dark-shadow),
+    -5px -3px 3px var(--clr-secondary);
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 6px 2px var(--clr-dark-shadow);
+  background-color: hsla(0, 0%, 100%, 0.25);
+  backdrop-filter: blur(25px);
 }
 .start-game-button:hover {
-  box-shadow: 0px 0px 10px 10px;
+  box-shadow: 0px 0px 6px 8px var(--clr-secondary);
+  transform: scale(1.03);
 }
 
 @keyframes slide-in {

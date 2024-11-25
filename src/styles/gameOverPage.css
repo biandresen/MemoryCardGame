@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 .game-over-container {
   position: absolute;
   top: 50%;
@@ -9,15 +11,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: hsla(0, 0%, 100%, 0.1);
+  background-color: var(--clr-blur-background);
   backdrop-filter: blur(25px);
-  box-shadow: 0px 0px 20px 15px #fe3310;
+  box-shadow: 0px 0px 20px 15px var(--clr-dark-shadow);
   border-radius: 20px;
   animation: pulse 2s linear infinite;
 }
 .game-over-heading {
-  color: yellow;
-  text-shadow: 5px 5px 2px black;
+  color: var(--clr-primary);
+  text-shadow: 5px 5px 2px var(--clr-dark-shadow);
   margin-bottom: 15px;
   font-family: PokemonFontSolid, sans-serif;
   font-size: 3.2rem;
@@ -29,7 +31,7 @@
 }
 .game-over-text {
   margin: 20px 0;
-  color: black;
+  color: var(--clr-text);
   font-weight: 700;
   text-align: center;
   line-height: 40px;
@@ -38,10 +40,10 @@
 .replay-button {
   font-size: 1.6rem;
   font-weight: 700;
-  background-color: #ffd924;
+  background-color: var(--clr-primary);
   box-shadow:
-    1px 1px 1px 2px black,
-    1px 1px 6px 6px #fe3310;
+    1px 1px 1px 2px var(--clr-dark-shadow),
+    1px 1px 6px 6px var(--clr-secondary);
   cursor: pointer;
   border-radius: 10px;
   width: fit-content;
@@ -51,18 +53,18 @@
 }
 .replay-button:hover {
   box-shadow:
-    1px 1px 1px 2px black,
-    1px 1px 10px 10px #fe3310;
+    1px 1px 1px 2px var(--clr-dark-shadow),
+    1px 1px 10px 10px var(--clr-secondary);
 }
 
 @keyframes pulse {
   from {
-    box-shadow: 0px 0px 15px 10px #fe3310;
+    box-shadow: 0px 0px 15px 10px var(--clr-secondary);
   }
   50% {
-    box-shadow: 0px 0px 30px 25px #fe3310;
+    box-shadow: 0px 0px 30px 25px var(--clr-secondary);
   }
   to {
-    box-shadow: 0px 0px 15px 10px #fe3310;
+    box-shadow: 0px 0px 15px 10px var(--clr-secondary);
   }
 }

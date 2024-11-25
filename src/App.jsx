@@ -1,7 +1,6 @@
 import backgroundVideo from "./assets/images/PokemonWallpaper.mp4";
 import backgroundMusic from "./assets/audio/backgroundMusic.mp3";
 import clickSound from "./assets/audio/clickSound.mp3";
-import flipSound from "./assets/audio/flipSound.mp3";
 import winnerSound from "./assets/audio/winnerSound.mp3";
 import loadingImage from "./assets/images/pikachuLoading.png";
 import "./styles/reset.css";
@@ -38,13 +37,9 @@ export default function App() {
     audio.play();
   };
 
-  const playFlip = () => {
-    const audio = new Audio(flipSound);
-    audio.play();
-  };
-
   const playWinner = () => {
     const audio = new Audio(winnerSound);
+    audio.volume = 0.2;
     audio.play();
   };
 
@@ -71,11 +66,7 @@ export default function App() {
               setGameInProgress={setGameInProgress}
             />
           : !isWinner && (
-              <GamePage
-                playClick={playClick}
-                playFlip={playFlip}
-                setIsWinner={setIsWinner}
-              />
+              <GamePage playClick={playClick} setIsWinner={setIsWinner} />
             )
           }
         </>

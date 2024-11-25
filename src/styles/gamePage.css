@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 .game-page-container {
   position: absolute;
   top: 50%;
@@ -18,16 +20,14 @@
   position: fixed;
   top: 0%;
   right: 0%;
-  box-shadow:
-    0px 0px 5px 3px yellow,
-    4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
-  background-color: hsla(0, 0%, 100%, 0.25);
+  box-shadow: 0px 0px 10px 7px var(--clr-primary);
+  background-color: var(--clr-blur-background);
   backdrop-filter: blur(25px);
   width: 330px;
   padding: 20px;
-  color: yellow;
+  color: var(--clr-primary);
   border-radius: 10px;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px var(--clr-dark-shadow);
   display: flex;
 }
 .score-header {
@@ -54,11 +54,11 @@
 }
 
 .card {
-  color: hsl(0, 0%, 0%, 0.9);
+  color: var(--clr-text);
   border-radius: 8px;
   width: 100%;
-  box-shadow: 4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
-  background-color: hsla(0, 0%, 100%, 0.25);
+  box-shadow: 4px 4px 6px 2px var(--clr-dark-shadow);
+  background-color: var(--clr-blur-background);
   backdrop-filter: blur(25px);
   cursor: pointer;
   text-align: center;
@@ -69,43 +69,51 @@
   animation: shake 1s linear infinite;
 }
 .card:hover {
-  box-shadow: 0px 0px 7px 10px #fe3310;
+  box-shadow: 0px 0px 7px 10px var(--clr-secondary);
 }
-
 .card-image {
   width: 100%;
   height: auto;
 }
-
 .card-name {
   margin-top: 17px;
   margin-bottom: -17px;
   font-size: 1.2rem;
   font-weight: 1000;
 }
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: none;
+}
 .offset-container {
   position: absolute;
-  bottom: 5%;
   left: 50%;
-  translate: 28%;
+  top: 50%;
+  translate: -50% -50%;
+  min-width: 510px;
   width: fit-content;
   height: fit-content;
   background: none;
   border-radius: 10px;
-  padding: 10px 15px;
-  box-shadow: 4px 4px 6px 2px hsl(0, 0%, 0%, 0.8);
-  background-color: hsla(0, 0%, 100%, 0.2);
+  padding: 30px;
+  box-shadow: 4px 4px 6px 2px var(--clr-dark-shadow);
+  background-color: var(--clr-blur-background);
   backdrop-filter: blur(25px);
   display: flex;
   align-items: center;
+  z-index: 3;
 }
 .offset-container label {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin-right: 10px;
 }
 #offset-input {
-  background-color: yellow;
+  background-color: var(--clr-primary);
   font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
@@ -115,12 +123,18 @@
 .offset-affirm-button {
   font-weight: 700;
   font-size: 1.2rem;
-  background-color: #ffd924;
+  background-color: var(--clr-primary);
   cursor: pointer;
   border-radius: 10px;
   width: 50px;
   height: 40px;
   padding: 4px;
+}
+.loading-pokemons-text {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  text-shadow: 3px 3px 1px black;
 }
 
 @keyframes shake {
@@ -138,5 +152,130 @@
   }
   to {
     transform: rotateZ(0deg);
+  }
+}
+
+@media (max-width: 1060px) {
+  .game-page-container {
+    width: clamp(350px, 800px, 90%);
+  }
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .game-logo-header {
+    font-size: 4rem;
+  }
+  .game-logo-text {
+    font-size: 1.5rem;
+    margin-top: -22px;
+  }
+  .score-container {
+    width: 250px;
+  }
+  .score-image {
+    top: 15%;
+    right: 5%;
+    width: 70px;
+  }
+  .card-name {
+    font-size: 0.9rem;
+    margin: 10px 0 -8px 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .game-page-container {
+    width: clamp(350px, 500px, 90%);
+    height: clamp(350px, 600px, 75%);
+  }
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  .game-logo-header {
+    font-size: 3rem;
+  }
+  .game-logo-text {
+    font-size: 1.2rem;
+    margin-top: -18px;
+  }
+  .score-container {
+    top: 3%;
+    width: 190px;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  .score-image {
+    top: 15%;
+    right: 5%;
+    width: 50px;
+  }
+  .card-name {
+    font-size: 0.8rem;
+    margin: 10px 0 -8px 0;
+  }
+  .offset-container {
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+}
+@media (max-width: 500px) {
+  header {
+    display: none;
+  }
+  .game-page-container {
+    top: 45%;
+    height: clamp(40%, 800px, 90%);
+  }
+  .card-container {
+    gap: 5px;
+  }
+  .card {
+    align-self: start;
+    height: 133px;
+  }
+  .game-logo {
+    top: 7.5%;
+    left: 50%;
+    translate: -50% -50%;
+  }
+  .game-logo-header {
+    font-size: 2.3rem;
+  }
+  .game-logo-text {
+    font-size: 0.8rem;
+    margin-top: -10px;
+  }
+  .score-container {
+    top: 13.5%;
+    width: 65%;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
+  .score-text {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .score-image {
+    top: -70%;
+    left: -43%;
+    width: 60px;
+  }
+  .card-name {
+    font-size: 0.8rem;
+    margin: 3px 0 -12px 0;
+  }
+  .offset-container {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .offset-container label {
+    font-size: 1.4rem;
   }
 }

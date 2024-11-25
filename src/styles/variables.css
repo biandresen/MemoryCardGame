@@ -1,0 +1,7 @@
+:root {
+  --clr-primary: #f7c505;
+  --clr-secondary: #fe3310;
+  --clr-dark-shadow: black;
+  --clr-text: black;
+  --clr-blur-background: hsla(0, 0%, 100%, 0.25);
+}

@@ -9,6 +9,10 @@ export default function GameTipButton({ playClick }) {
 
   return (
     <>
+      <div
+        style={tipIsOpen ? { display: "block" } : null}
+        className="overlay"
+      ></div>
       {tipIsOpen ?
         <div className="tip-container">
           <p className="tip-message">

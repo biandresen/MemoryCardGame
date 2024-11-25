@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 .loading-container {
   position: fixed;
   display: flex;
@@ -20,10 +22,10 @@
   margin-top: 10px;
   font-family: PokemonFontSolid, sans-serif;
   font-size: 3rem;
-  color: #ffd924;
+  color: var(--clr-primary);
   text-shadow:
-    3px 3px 0px black,
-    -3px -3px 3px #fe3310;
+    3px 3px 0px var(--clr-dark-shadow),
+    -3px -3px 3px var(--clr-secondary);
   letter-spacing: 5px;
   text-align: center;
   animation: load-up-n-down 3.5s linear infinite;
