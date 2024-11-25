@@ -2,7 +2,7 @@
 
 .game-tip-button {
   font-size: 1.2rem;
-  position: absolute;
+  position: fixed;
   background-color: var(--clr-primary);
   box-shadow:
     1px 1px 1px 2px var(--clr-dark-shadow),
@@ -60,7 +60,7 @@
 }
 .offset-menu-button {
   font-size: 1.2rem;
-  position: absolute;
+  position: fixed;
   background-color: var(--clr-primary);
   box-shadow:
     1px 1px 1px 2px var(--clr-dark-shadow),
@@ -121,8 +121,8 @@
   }
   .game-tip-button {
     font-size: 0.8rem;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     left: 15%;
     bottom: 1%;
     display: flex;
@@ -137,8 +137,8 @@
   }
   .offset-menu-button {
     font-size: 0.8rem;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     display: flex;
     align-items: center;
     justify-content: center;

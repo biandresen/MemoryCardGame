@@ -75,3 +75,15 @@
     left: 120%;
   }
 }
+
+@media (max-width: 1060px) {
+  .loading-text {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .loading-text {
+    font-size: 2rem;
+  }
+}

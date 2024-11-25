@@ -1,7 +1,7 @@
 @import url(variables.css);
 
 .music-button {
-  position: absolute;
+  position: fixed;
   background-color: var(--clr-primary);
   box-shadow:
     1px 1px 1px 2px var(--clr-dark-shadow),
@@ -34,15 +34,15 @@
 @media (max-width: 500px) {
   .music-button {
     font-size: 0.8rem;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     left: 18%;
     bottom: 1%;
     display: flex;
     align-items: center;
     box-shadow:
-    1px 1px 1px 2px var(--clr-dark-shadow),
-    1px 1px 4px 4px var(--clr-secondary);
+      1px 1px 1px 2px var(--clr-dark-shadow),
+      1px 1px 4px 4px var(--clr-secondary);
   }
   .music-button > * {
     position: relative;
