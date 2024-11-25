@@ -8,6 +8,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import pikachu from "../assets/images/pikachuLoading.png";
 
+const MAXOFFSET = 139;
+
 export default function GamePage({ playClick, setIsWinner }) {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -153,7 +155,7 @@ function OffSetMenu({ playClick, handleOffSetAffirm, setOffsetMenuOpen }) {
     <>
       <div className="offset-container">
         <label htmlFor="offset-input">Choose pokemon offset-nr:</label>
-        <input id="offset-input" type="number" min="0" max="1290" />
+        <input id="offset-input" type="number" min="0" max={MAXOFFSET} />
         <button
           onClick={() => {
             playClick();
