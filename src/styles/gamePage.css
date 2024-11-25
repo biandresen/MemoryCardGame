@@ -16,6 +16,26 @@
   top: 11%;
   left: 3.5%;
 }
+.game-logo {
+  translate: -10% -50%;
+  text-align: center;
+  font-family: PokemonFontSolid, sans-serif;
+  color: var(--clr-primary);
+  letter-spacing: 8px;
+}
+.game-logo-header {
+  font-size: 5rem;
+  text-shadow:
+    5px 5px 0px var(--clr-dark-shadow),
+    -5px -3px 3px var(--clr-secondary);
+}
+.game-logo-text {
+  margin: -30px 0 25px 0;
+  font-size: 2rem;
+  text-shadow:
+    5px 5px 0px var(--clr-dark-shadow),
+    -5px -3px 3px var(--clr-secondary);
+}
 .score-container {
   position: fixed;
   top: 0%;
@@ -201,6 +221,12 @@
   }
 }
 
+@media (hover: none) {
+  .card:hover {
+    box-shadow: 4px 4px 6px 2px var(--clr-dark-shadow);
+  }
+}
+
 @media (max-width: 1060px) {
   .game-page-container {
     width: clamp(350px, 800px, 90%);
@@ -277,14 +303,14 @@
   }
   .game-page-container {
     top: 45%;
-    height: clamp(40%, 800px, 90%);
+    height: clamp(40%, 600px, 90%);
   }
   .card-container {
     gap: 5px;
   }
   .card {
     align-self: start;
-    height: 133px;
+    height: 128px;
   }
   .game-logo {
     top: 7.5%;
@@ -301,7 +327,7 @@
   .score-container {
     top: 13.5%;
     width: 65%;
-    padding: 3px 8px;
+    padding: 0px 8px;
     font-size: 0.7rem;
   }
   .score-text {
@@ -310,8 +336,8 @@
     justify-content: space-around;
   }
   .score-image {
-    top: -70%;
-    left: -43%;
+    top: -110%;
+    left: -48%;
     width: 60px;
   }
   .card-name {

@@ -119,4 +119,30 @@
   .tip-image {
     width: 100px;
   }
+  .game-tip-button {
+    font-size: 0.8rem;
+    width: 20px;
+    height: 20px;
+    left: 15%;
+    bottom: 1%;
+    display: flex;
+    align-items: center;
+    box-shadow:
+      1px 1px 1px 2px var(--clr-dark-shadow),
+      1px 1px 4px 4px var(--clr-secondary);
+  }
+  .game-tip-button > * {
+    position: relative;
+    left: -1px;
+  }
+  .offset-menu-button {
+    font-size: 0.8rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 73%;
+    bottom: 1%;
+  }
 }

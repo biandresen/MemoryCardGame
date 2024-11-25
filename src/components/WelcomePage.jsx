@@ -4,7 +4,10 @@ export default function WelcomePage({ playClick, setGameInProgress }) {
   return (
     <>
       <div className="welcome-container">
-        <GameLogo />
+        <div className="game-logo-welcome">
+          <p className="game-logo-header-welcome">PoKéMoN</p>
+          <p className="game-logo-text-welcome">Memory Game</p>
+        </div>
         <button
           onClick={() => {
             setGameInProgress(true);
@@ -16,14 +19,5 @@ export default function WelcomePage({ playClick, setGameInProgress }) {
         </button>
       </div>
     </>
-  );
-}
-
-export function GameLogo() {
-  return (
-    <div className="game-logo">
-      <p className="game-logo-header">PoKéMoN</p>
-      <p className="game-logo-text">Memory Game</p>
-    </div>
   );
 }

@@ -1,7 +1,6 @@
 import "../styles/gamePage.css";
 import errorSound from "../assets/audio/errorSound.mp3";
 import pointSound from "../assets/audio/pointSound.mp3";
-import { GameLogo } from "./WelcomePage";
 import PokemonList from "./PokemonList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -88,7 +87,10 @@ export default function GamePage({ playClick, setIsWinner }) {
         className="overlay"
       ></div>
       <div className="game-page-container">
-        <GameLogo />
+        <div className="game-logo">
+          <p className="game-logo-header">PoKéMoN</p>
+          <p className="game-logo-text">Memory Game</p>
+        </div>
         <ScoreContainer score={score} highScore={highScore} />
         {loading ?
           <div className="loading-pokemons-text">Loading Pokémons...</div>

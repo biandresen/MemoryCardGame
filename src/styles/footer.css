@@ -19,3 +19,12 @@ footer .fa-github {
 footer .fa-github:hover {
   transform: scale(1.2);
 }
+
+@media (max-width: 500px) {
+  footer p {
+    font-size: 0.8rem;
+  }
+  footer .fa-github {
+    font-size: 15px;
+  }
+}
