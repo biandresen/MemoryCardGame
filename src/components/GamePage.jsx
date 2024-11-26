@@ -67,12 +67,6 @@ export default function GamePage({ playClick, setIsWinner }) {
     audio.play();
   };
 
-  useEffect(() => {
-    if (offSetMenuOpen) {
-      document.getElementById("offset-input").focus();
-    }
-  }, [offSetMenuOpen]);
-
   const handleOffSetAffirm = () => {
     let offsetValue = Number(document.getElementById("offset-input").value);
     if (offsetValue > MAXOFFSET) offsetValue = MAXOFFSET;
