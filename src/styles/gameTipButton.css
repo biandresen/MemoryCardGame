@@ -34,8 +34,8 @@
   border-radius: 10px;
   padding: 30px;
   box-shadow: 4px 4px 6px 2px var(--clr-dark-shadow);
-  background-color: var(--clr-blur-background);
-  backdrop-filter: blur(25px);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
   display: flex;
   z-index: 3;
 }
@@ -133,7 +133,7 @@
   }
   .game-tip-button > * {
     position: relative;
-    left: -1px;
+    left: 11.2%;
   }
   .offset-menu-button {
     font-size: 0.8rem;
