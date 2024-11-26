@@ -12,7 +12,7 @@ Memory game where you win by clicking all 12 cards only once.
 * Background music and interactive sounds.
 
 ## Images
-https://github.com/user-attachments/assets/e373839d-8203-4a28-a19e-96250f160ec6
+![memoryGameGif](https://github.com/user-attachments/assets/899fdddc-bb9b-4f96-a716-3610f898562f)
 ![Screenshot from 2024-11-26 14-26-40](https://github.com/user-attachments/assets/ac1b61be-736a-4093-b2ff-a584181f5b8b)
 ![Screenshot from 2024-11-26 14-26-50](https://github.com/user-attachments/assets/b5629942-4c85-47e9-807b-93d5795d4547)
 ![Screenshot from 2024-11-26 14-27-16](https://github.com/user-attachments/assets/43a06fc6-96fb-4022-9072-d58f021d96c6)
